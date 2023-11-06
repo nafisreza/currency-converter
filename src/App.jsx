@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import InputBox from "./components/InputBox";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div
+        className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
+        style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1502920514313-52581002a659?auto=format&fit=crop&q=80&w=2067&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+        }}
+    >
+        <div className="w-full">
+            <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
+              <h1 className="text-center font-semibold mb-2">React Currency Converter</h1>
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                       
+                    }}
+                >
+                    <div className="w-full mb-1">
+                        <InputBox
+                            label="From"
+                            
+                        />
+                    </div>
+                    <div className="relative w-full">
+                        <button
+                            type="button"
+                            className=""
+                            
+                        >
+                            swap
+                        </button>
+                    </div>
+                    <div className="w-full mt-1 mb-4">
+                        <InputBox
+                            label="To"
+                            
+                        />
+                    </div>
+                    <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700">
+                        Convert 
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+);
 }
 
 export default App
