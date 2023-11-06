@@ -1,6 +1,28 @@
+import { useState } from "react";
 import InputBox from "./components/InputBox";
+import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 function App() {
+  const [amount, setAmount] = useState(0) 
+  const [currencyfrom, setCurrencyFrom] = useState("usd")
+  const [currencyTo, setCurrencyTo] = useState("bdt")
+  const [convertedAmount, setConvertedAmount] = useState(0)
+
+  const currencyInfo = useCurrencyInfo(currencyfrom)
+  
+  const currencyOptions = Object.keys(currencyInfo)
+
+  const swapCurrency = () => {
+    setCurrencyFrom(currencyTo)
+    setCurrencyTo(currencyfrom)
+    setConvertedAmount(amount)
+    setAmount(convertedAmount)
+  }
+
+  const convertCurrency = () => {
+    setConvertedAmount(amount * currencyInfo[currencyTo])
+  }
+
   return (
     <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
