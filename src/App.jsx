@@ -3,10 +3,10 @@ import InputBox from "./components/InputBox";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 function App() {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
   const [currencyfrom, setCurrencyFrom] = useState("usd");
   const [currencyTo, setCurrencyTo] = useState("bdt");
-  const [convertedAmount, setConvertedAmount] = useState(0);
+  const [convertedAmount, setConvertedAmount] = useState(110.71);
 
   const currencyInfo = useCurrencyInfo(currencyfrom);
 
@@ -20,7 +20,7 @@ function App() {
   };
 
   const convertCurrency = () => {
-    setConvertedAmount(amount * currencyInfo[currencyTo]);
+    setConvertedAmount((amount * currencyInfo[currencyTo]).toFixed(2));
   };
 
   return (
