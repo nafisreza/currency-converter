@@ -20,13 +20,13 @@ function InputBox({
         <label htmlFor={amountInputId}
         className="text-black/40 mb-2 inline-block">{label}</label>
         <input
-          id={amountInputId}
+        id={amountInputId}
           className="outline-none w-full bg-transparent py-1.5"
           type="number"
           placeholder="Amount"
           disabled={amountDisabled}
           value={amount}
-          onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
+          onChange={(e) => onAmountChange && onAmountChange(parseInt(e.target.value))}
         />
       </div>
       <div className="w-1/2 flex flex-wrap justify-end text-right">
